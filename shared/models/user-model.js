@@ -13,11 +13,11 @@ class User extends Model {
         email: STRING,
         gender: {
           type: STRING,
-          validate: { isIn: [MALE, FEMALE] }
+          validate: { isIn: [[MALE, FEMALE]] }
         },
         status: {
           type: STRING,
-          validate: { isIn: [ACTIVE, INACTIVE] }
+          validate: { isIn: [[ACTIVE, INACTIVE]] }
         },
       },
       {

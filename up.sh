@@ -2,7 +2,8 @@
 
 # starting up
 MAIN_DIR=$(pwd)
-
+# client
+npm run build --prefix client
 # users service
 USERS_SERVICE="users-service"
 docker build --ssh default -t gorest-${USERS_SERVICE}:latest -f ${MAIN_DIR}/${USERS_SERVICE}/Dockerfile .

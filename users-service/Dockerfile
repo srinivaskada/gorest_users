@@ -10,6 +10,7 @@ COPY ./${SERVICE_NAME}/package.json ./
 COPY ./${SERVICE_NAME}/package-lock.json ./
 
 ADD ./${SERVICE_NAME}/node_modules/ ./node_modules/
+ADD ./${SERVICE_NAME}/../client/build ./client-build/
 # RUN npm ci --production
 
 ADD ./${SERVICE_NAME}/src ./src
