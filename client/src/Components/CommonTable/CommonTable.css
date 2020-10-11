@@ -1,0 +1,24 @@
+.common-table .react-datepicker-wrapper {
+  width: 300px;
+  display: block;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem !important;
+}
+.common-table .react-datepicker__input-container {
+  display: block;
+}
+.common-table th {
+  vertical-align: top !important;
+}
+
+.common-table .fa.sort-icon {
+  font-size: 16px;
+}
+.common-table .fa.sort-inactive {
+  color: #90b6d5;
+}
+
+.filter-container .select2-container {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
