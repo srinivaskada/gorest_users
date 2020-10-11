@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  gorest-users-service:
+    image: gorest-users-service:latest
+    container_name: gorest-users-service
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - GOREST_TOKEN=${GOREST_TOKEN}
+      - APP_PORT=8000
+    ports:
+      - '8001:8000'
+    depends_on:
+      - mysql
+  gorest-gorest-service:
+    image: gorest-gorest-service:latest
+    container_name: gorest-gorest-service
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - GOREST_TOKEN=${GOREST_TOKEN}
+      - GOREST_BASEURL=${GOREST_BASEURL}
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    ports:
+        - '3307:3306'
+    security_opt:
+      - seccomp:unconfined
