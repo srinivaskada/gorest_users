@@ -71,7 +71,7 @@ module.exports = {
       }, ]
       const csvHeaders = downloadColumns.map(({ title }) => title)
       const readStream = new stream.PassThrough()
-      readStream.write(csvHeaders.join(',') + '\n') // write CSV header
+      readStream.write(csvHeaders.join(',')) // write CSV header
       users.forEach(user => {
         readStream.write('\n')
         readStream.write(downloadColumns.map(({ accessor}) => user[accessor]).map(value => `"${value}"`).join(','))

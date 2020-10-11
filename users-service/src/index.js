@@ -34,8 +34,8 @@ const models = require('./models')
   
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'client-build', 'index.html'));
-    });
-    app.use((req, res, next) => next(new InvalidRouteError()))
+    })
+    // app.use((req, res, next) => next(new InvalidRouteError()))
     app.use(errorMiddleware)
     const server = http.createServer(app)
     server.listen(process.env.APP_PORT, () => {
